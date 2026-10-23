@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pendaftaran Workshop Pemrograman Web</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="nav">
+        <a href="index.html" class="active">Pendaftaran</a>
+        <a href="detail.html">Detail Pendaftar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="box">
+      <h2 class="box-title">Formulir Pendaftaran Peserta</h2>
+      <form id="form-daftar" action="detail.html" method="get">
+        <!-- Data Diri -->
+        <fieldset>
+          <legend>Data Diri</legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nama">Nama Lengkap</label>
+              <input type="text" id="nama" name="nama" placeholder="Masukkan nama lengkap" required />
+            </div>
+
+            <div class="form-group">
+              <label for="nim">NIM</label>
+              <input type="text" id="nim" name="nim" pattern="[0-9]{9}"
+                     title="NIM terdiri dari 9 digit angka" placeholder="Contoh: 124140174" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="contoh@email.com" required />
+            </div>
+
+            <div class="form-group">
+              <label for="telepon">No. Telepon</label>
+              <input type="tel" id="telepon" name="telepon" placeholder="08xxxxxxxxxx" />
+            </div>
+
+            <div class="form-group">
+              <label for="tgl_lahir">Tanggal Lahir</label>
+              <input type="date" id="tgl_lahir" name="tgl_lahir" />
+            </div>
+
+            <div class="form-group">
+              <span class="label">Jenis Kelamin</span>
+              <div class="option-row">
+                <input type="radio" id="laki" name="gender" value="laki-laki" checked />
+                <label for="laki">Laki-laki</label>
+                <input type="radio" id="perempuan" name="gender" value="perempuan" />
+                <label for="perempuan">Perempuan</label>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Data Akademik -->
+        <fieldset>
+          <legend>Data Akademik</legend>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="prodi">Program Studi</label>
+              <input list="daftar-prodi" id="prodi" name="prodi" placeholder="Pilih / ketik program studi" />
+              <datalist id="daftar-prodi">
+                <option value="Teknik Informatika"></option>
+                <option value="Sains Data"></option>
+                <option value="Teknik Elektro"></option>
+                <option value="Sistem Informasi"></option>
+              </datalist>
+            </div>
+
+            <div class="form-group">
+              <label for="angkatan">Angkatan</label>
+              <select id="angkatan" name="angkatan">
+                <option value="">Pilih Angkatan</option>
+                <option value="2022">2022</option>
+                <option value="2023">2023</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+              </select>
+            </div>
+          </div>
+        </fieldset>
+
+        <div class="form-actions">
+          <button type="reset" class="btn btn-secondary">Reset</button>
+          <button type="submit" class="btn btn-primary">Daftar</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Syahid Amanullah &middot; 124140174 &middot; Tugas Individu 3 Pemrograman Web</p>
+  </footer>
+</body>
+</html>

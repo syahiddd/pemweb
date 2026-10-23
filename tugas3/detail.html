@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detail Pendaftar - Workshop Pemrograman Web</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <nav class="nav">
+        <a href="index.html">Pendaftaran</a>
+        <a href="detail.html" class="active">Detail Pendaftar</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container detail-layout">
+    <!-- Kartu profil pendaftar (ditandai microformats h-card) -->
+    <aside class="box profile h-card">
+      <div class="avatar" id="avatar">AF</div>
+      <h2 class="p-name" data-field="nama">Ahmad Fauzi</h2>
+      <p class="p-note"><span data-field="prodi">Teknik Informatika</span> &middot; <span data-field="angkatan">2024</span></p>
+      <span class="badge">Terdaftar</span>
+      <ul class="contact">
+        <li>Email: <a class="u-email" id="link-email" href="mailto:ahmad.fauzi@student.itera.ac.id" data-field="email">ahmad.fauzi@student.itera.ac.id</a></li>
+        <li>Telepon: <span class="p-tel" data-field="telepon">081234567890</span></li>
+      </ul>
+    </aside>
+
+    <div class="detail-main">
+      <!-- Tabel detail informasi pendaftar -->
+      <section class="box">
+        <h2 class="box-title">Detail Informasi Pendaftar</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th colspan="3">Data Pendaftar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th rowspan="6" class="group">Data Diri</th>
+              <td>Nama Lengkap</td>
+              <td data-field="nama">Ahmad Fauzi</td>
+            </tr>
+            <tr>
+              <td>NIM</td>
+              <td data-field="nim">124140017</td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td data-field="email">ahmad.fauzi@student.itera.ac.id</td>
+            </tr>
+            <tr>
+              <td>No. Telepon</td>
+              <td data-field="telepon">081234567890</td>
+            </tr>
+            <tr>
+              <td>Tanggal Lahir</td>
+              <td data-field="tgl_lahir">12 Maret 2006</td>
+            </tr>
+            <tr>
+              <td>Jenis Kelamin</td>
+              <td data-field="gender">Laki-laki</td>
+            </tr>
+            <tr>
+              <th rowspan="2" class="group">Data Akademik</th>
+              <td>Program Studi</td>
+              <td data-field="prodi">Teknik Informatika</td>
+            </tr>
+            <tr>
+              <td>Angkatan</td>
+              <td data-field="angkatan">2024</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- Desain query string dari halaman pendaftaran -->
+      <section class="box">
+        <h2 class="box-title">Desain Query String</h2>
+        <p class="box-desc">
+          Form pada halaman pendaftaran menggunakan <code>method="get"</code> dan
+          <code>action="detail.html"</code>, sehingga data dikirim melalui URL dalam
+          bentuk pasangan <code>name=value</code> yang dipisahkan tanda <code>&amp;</code>.
+        </p>
+
+        <pre class="query-box" id="query-box">GET /detail.html?nama=Ahmad+Fauzi&amp;nim=124140017&amp;email=ahmad.fauzi%40student.itera.ac.id&amp;telepon=081234567890&amp;tgl_lahir=2006-03-12&amp;gender=laki-laki&amp;prodi=Teknik+Informatika&amp;angkatan=2024 HTTP/1.1</pre>
+
+        <table class="table table-query">
+          <thead>
+            <tr>
+              <th>Parameter (name)</th>
+              <th>Nilai (value)</th>
+              <th>Elemen Form</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td><code>nama</code></td><td data-raw="nama">Ahmad+Fauzi</td><td>input text</td></tr>
+            <tr><td><code>nim</code></td><td data-raw="nim">124140017</td><td>input text (pattern)</td></tr>
+            <tr><td><code>email</code></td><td data-raw="email">ahmad.fauzi%40student.itera.ac.id</td><td>input email</td></tr>
+            <tr><td><code>telepon</code></td><td data-raw="telepon">081234567890</td><td>input tel</td></tr>
+            <tr><td><code>tgl_lahir</code></td><td data-raw="tgl_lahir">2006-03-12</td><td>input date</td></tr>
+            <tr><td><code>gender</code></td><td data-raw="gender">laki-laki</td><td>input radio</td></tr>
+            <tr><td><code>prodi</code></td><td data-raw="prodi">Teknik+Informatika</td><td>input + datalist</td></tr>
+            <tr><td><code>angkatan</code></td><td data-raw="angkatan">2024</td><td>select</td></tr>
+          </tbody>
+        </table>
+
+        <ul class="notes">
+          <li>Spasi pada nilai diubah menjadi tanda <code>+</code>.</li>
+          <li>Karakter khusus di-encode, misalnya <code>@</code> menjadi <code>%40</code>.</li>
+          <li>Jika halaman dibuka tanpa query string, data yang tampil adalah data contoh (dummy).</li>
+        </ul>
+
+        <div class="form-actions">
+          <a href="index.html" class="btn btn-secondary">Kembali ke Pendaftaran</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <p>Syahid Amanullah &middot; 124140174 &middot; Tugas Individu 3 Pemrograman Web</p>
+  </footer>
+
+  <script src="js/detail.js"></script>
+</body>
+</html>
